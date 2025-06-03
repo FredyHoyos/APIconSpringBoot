@@ -5,10 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PokemonDTO {
+public class AgePredictionDTO {
+    private int count;
     private String name;
-    private int id;
-    private int height;
-    private int weight;
-
+    private int age;
 }

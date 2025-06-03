@@ -5,22 +5,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.udea.FredyHoyos.entities.PokemonDTO;
-import com.udea.FredyHoyos.services.PokemonService;
+import com.udea.FredyHoyos.entities.AgePredictionDTO;
+import com.udea.FredyHoyos.services.AgePredictionService;
 
 @RestController
 public class ApiController {
 
 
-    private final PokemonService pokemonService;
+    private final AgePredictionService pokemonService;
 
-    public ApiController(PokemonService pokemonService) {
+    public ApiController(AgePredictionService pokemonService) {
         this.pokemonService = pokemonService;
     }
 
-    @GetMapping("/pokemon/{id}")
-    public PokemonDTO gPokemon(@PathVariable int id) {
-        return pokemonService.getPokemonById(id);
+    @GetMapping("/pokemon")
+    public AgePredictionDTO gPokemon(@RequestParam String name) {
+        return pokemonService.getAgePredictionByName(name);
     }
     
 }

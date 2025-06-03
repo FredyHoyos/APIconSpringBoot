@@ -1,6 +1,6 @@
 package com.udea.FredyHoyos;
 
-import com.udea.FredyHoyos.entities.PokemonDTO;
+import com.udea.FredyHoyos.entities.AgePredictionDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +16,17 @@ public class DeploymentIntegrationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testGetPokemonById() {
-        // Aquí haces una petición HTTP real a tu API
-        ResponseEntity<PokemonDTO> response = restTemplate.getForEntity("/pokemon/1", PokemonDTO.class);
-        
-        // Verificas que la respuesta HTTP sea 200 OK
+    public void testGetAgePredictionByName() {
+        // Hacemos una petición con query param
+        ResponseEntity<AgePredictionDTO> response = restTemplate.getForEntity("/pokemon?name=ash", AgePredictionDTO.class);
+
+        // Verifica que el status sea 2xx
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        
-        // Verificas que el cuerpo no sea nulo
+
+        // Verifica que el cuerpo no sea nulo
         assertThat(response.getBody()).isNotNull();
-        
-        // Verificas que el nombre del pokemon sea el esperado
-        assertThat(response.getBody().getName()).isEqualTo("bulbasaur");
+
+        // Verifica que el nombre sea "ash"
+        assertThat(response.getBody().getName()).isEqualTo("ash");
     }
 }
