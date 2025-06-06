@@ -12,15 +12,15 @@ import com.udea.FredyHoyos.services.AgePredictionService;
 public class ApiController {
 
 
-    private final AgePredictionService pokemonService;
+    private final AgePredictionService egePredictionService;
 
-    public ApiController(AgePredictionService pokemonService) {
-        this.pokemonService = pokemonService;
+    public ApiController(AgePredictionService egePredictionService) {
+        this.egePredictionService = egePredictionService;
     }
 
-    @GetMapping("/pokemon")
-    public AgePredictionDTO gPokemon(@RequestParam String name) {
-        return pokemonService.getAgePredictionByName(name);
+    @GetMapping("/ege")
+    public AgePredictionDTO getEde(@RequestParam String name) {
+        return egePredictionService.getAgePredictionByName(name);
     }
     
 }
