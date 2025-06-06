@@ -18,7 +18,7 @@ public class DeploymentIntegrationTest {
     @Test
     public void testGetAgePredictionByName() {
         // Hacemos una petición con query param
-        ResponseEntity<AgePredictionDTO> response = restTemplate.getForEntity("/pokemon?name=ash", AgePredictionDTO.class);
+        ResponseEntity<AgePredictionDTO> response = restTemplate.getForEntity("/ege?name=ash", AgePredictionDTO.class);
 
         // Verifica que el status sea 2xx
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
