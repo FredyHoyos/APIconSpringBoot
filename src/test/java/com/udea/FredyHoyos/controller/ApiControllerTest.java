@@ -24,15 +24,15 @@ public class ApiControllerTest {
     @Test
     public void getAgePrediction_ReturnsOkWithData() throws Exception {
         AgePredictionDTO dto = new AgePredictionDTO();
-        dto.setName("pikachu");
+        dto.setName("fredy");
         dto.setAge(10);
         dto.setCount(1234);
 
-        when(agePredictionService.getAgePredictionByName("pikachu")).thenReturn(dto);
+        when(agePredictionService.getAgePredictionByName("fredy")).thenReturn(dto);
 
-        mockMvc.perform(get("/pokemon?name=pikachu"))
+        mockMvc.perform(get("/ege?name=fredy"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("pikachu"))
+                .andExpect(jsonPath("$.name").value("fredy"))
                 .andExpect(jsonPath("$.age").value(10))
                 .andExpect(jsonPath("$.count").value(1234));
     }
