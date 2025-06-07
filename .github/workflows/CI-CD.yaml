@@ -33,3 +33,6 @@ jobs:
       with:
         name: fredyhoyos-jar
         path: target/*.jar
+
+    - name: Trigger Render Deploy Webhook
+      run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
